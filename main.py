@@ -1,5 +1,6 @@
 from tkinter import filedialog
 import tkinter as tk
+from fileutils import list_files
 
 
 class Application(tk.Frame):
@@ -55,6 +56,7 @@ class Application(tk.Frame):
     def browse_reports(self):
         filename = filedialog.askdirectory()
         self.path_reports_c.set(filename)
+        list_files(filename)
 
     def browse_invoices(self):
         filename = filedialog.askdirectory()
