@@ -1,6 +1,7 @@
 from tkinter import filedialog
 import tkinter as tk
 from fileutils import list_files
+from report import make_reports
 
 
 class Application(tk.Frame):
@@ -46,8 +47,8 @@ class Application(tk.Frame):
 
         actions_frame = tk.Frame(self).grid(row=4, column=0, columnspan=3)
 
-        self.quit = tk.Button(actions_frame, text="Сформувати звіти", command=self.master.destroy)
-        self.quit.pack(side=tk.LEFT)
+        self.calculate = tk.Button(actions_frame, text="Сформувати звіти", command=self.calculate)
+        self.calculate.pack(side=tk.LEFT)
 
         self.quit = tk.Button(actions_frame, text="Вихід", fg="red",
                               command=self.master.destroy)
@@ -65,6 +66,14 @@ class Application(tk.Frame):
     def browse_result(self):
         filename = filedialog.askdirectory()
         self.path_result_c.set(filename)
+
+    def calculate(self):
+        make_reports(
+            self.member_code_c.get(),
+            self.path_reports_c.get(),
+            self.path_invoices_c.get(),
+            self.path_result_c.get(),
+        )
 
 
 root = tk.Tk()
