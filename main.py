@@ -9,7 +9,7 @@ BROWSE_BUTTON_WIDTH = 2
 BROWSE_BUTTON_HEIGHT = 2
 
 
-class Application(tk.Frame):
+class Application(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
@@ -50,7 +50,7 @@ class Application(tk.Frame):
         self.result_browsebutton = ttk.Button(self, text="...", command=self.browse_result, width=BROWSE_BUTTON_WIDTH)
         self.result_browsebutton.grid(row=3, column=2, padx=(3, 0,), pady=2)
 
-        actions_frame = tk.Frame(self).grid(row=4, column=0, columnspan=3)
+        actions_frame = ttk.Frame(self).grid(row=4, column=0, columnspan=3)
 
         self.calculate = ttk.Button(actions_frame, text="Сформувати звіти", command=self.calculate_reports)
         self.calculate.pack(side=tk.LEFT, padx=10, pady=10)
