@@ -1,5 +1,6 @@
 import csv
 import datetime
+from decimal import Decimal
 
 delimiter = '	'
 
@@ -26,7 +27,7 @@ def get_mmo_items(path):
                     'title': row[1],
                     'maker': row[3],
                     'morion_id': row[4],
-                    'price': row[19],
-                    'count': row[15],
+                    'price': Decimal(row[19].replace(',', '.')),
+                    'count': int(row[15]),
                     'units': row[14],
                 }

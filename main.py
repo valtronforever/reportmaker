@@ -2,7 +2,6 @@ from tkinter import filedialog
 import tkinter as tk
 from tkinter import ttk
 import traceback
-from fileutils import list_files
 from report import make_reports
 
 BROWSE_BUTTON_WIDTH = 2
@@ -13,7 +12,7 @@ class Application(ttk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.pack(padx=10, pady=10)
+        self.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
         self.create_widgets()
 
     def create_widgets(self):
@@ -81,7 +80,6 @@ class Application(ttk.Frame):
     def browse_reports(self):
         filename = filedialog.askdirectory()
         self.path_reports_c.set(filename)
-        list_files(filename)
 
     def browse_invoices(self):
         filename = filedialog.askdirectory()
